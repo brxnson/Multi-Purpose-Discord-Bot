@@ -1,6 +1,4 @@
-# Multi-Purpose-Discord-Bot
-
-This code has commands with varying categories from moderation to fun.
+### Multi-Purpose-Discord-Bot
 
 # Installation
 

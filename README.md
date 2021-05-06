@@ -12,8 +12,9 @@ npm install
 ## Setting up the config
 
 1) You will need to specify what prefix you would like to use in the "config.json" file in the "prefix" section
-2) You will need to get your MongoDB url link to paste into the "MongoLink" section in the "config.json" file so that the database can be accessed
-3) You will need to get your bot token from https://discord.com/developers/applications and put it into the "config.json" file in the "token" section!
+2) You will need to specify your Discord ID in the "DevID" section in the "config.json" file
+3) You will need to get your MongoDB url link to paste into the "MongoLink" section in the "config.json" file so that the database can be accessed
+4) You will need to get your bot token from https://discord.com/developers/applications and put it into the "config.json" file in the "token" section!
 
 ![dMzy0fb](https://user-images.githubusercontent.com/79931117/117315501-a9eea100-ae7f-11eb-8dec-0cf52be6735a.png)
 

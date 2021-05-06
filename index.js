@@ -14,20 +14,20 @@
 ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░░╚═════╝░╚══════╝╚══════╝╚═════╝░
 */
 
-const Discord = require ('discord.js')
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-const fs = require ('fs')
-const mongoose = require ('mongoose')
-let ascii = require ('ascii-table')
-const { Player } = require ('discord-player')
-client.player = new Player(client)
-const schema = require ('./mongoose/prefix')
-const MessageDelete = require ('./events/MessageDelete')
-const guildMemberAdd = require ('./events/GuildMemberAdd')
-const guildMemberRemove = require ('./events/GuildMemberRemove')
-const messageReactionAdd = require ('./events/ReactionAdd')
-const ModLogs = require ('./events/Server-Logs')
-const config = require ('./configs/config.json')
+const Discord = require ('discord.js') // Defining Discord as the discord.js module
+const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] }); // Defining the discord client aswell as the partials needed
+const fs = require ('fs') // Defining FS needed for the file management
+const mongoose = require ('mongoose') // Defining mongoose
+let ascii = require ('ascii-table') // Defining ascii for the file management events
+const { Player } = require ('discord-player') // Defining Player as the discord-player
+client.player = new Player(client) // Defining client.player as a new player
+const schema = require ('./mongoose/prefix') // Defining the prefix schema
+const MessageDelete = require ('./events/MessageDelete') // Defining the MessageDelete event
+const guildMemberAdd = require ('./events/GuildMemberAdd') // Defining the memberadd event
+const guildMemberRemove = require ('./events/GuildMemberRemove') // Defining the member remove event
+const messageReactionAdd = require ('./events/ReactionAdd') // Defining the reaction add event
+const ModLogs = require ('./events/Server-Logs') // Defining the modlogs events
+const config = require ('./configs/config.json') // Defining the config.json file
 
 /*
 
@@ -61,7 +61,7 @@ client.on("ready", () => {
 */
 
 client.login(config.token)
-mongoose.connect('mongodb+srv://Brxnson:J0j0b3thy@cluster0.sidg5.mongodb.net/test?authSource=admin&replicaSet=atlas-gl9iyk-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true', {
+mongoose.connect(config.MongoURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
@@ -201,7 +201,7 @@ client.on("message", async message => {
                     return message.reply('I can\'t execute that command inside the server!');
                 }
 
-                if(cmd.config.guarded && message.author.id !== '575330298968014859') {
+                if(cmd.config.guarded && message.author.id !== config.DevID) {
                     return message.reply('You can not do this!')
                 }
 
@@ -296,7 +296,7 @@ client.on("message", async message => {
                     return message.reply('I can\'t execute that command inside the server!');
                 }
 
-                if(cmd.config.guarded && message.author.id !== '575330298968014859') {
+                if(cmd.config.guarded && message.author.id !== config.DevID) {
                     return message.reply('You can not do this!')
                 }
 

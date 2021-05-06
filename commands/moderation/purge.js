@@ -2,6 +2,7 @@ const Discord = require ('discord.js')
 module.exports.config = {
     name: "purge",
     aliases: [],
+    description: 'This command will allow you to bulk delete the specified amount of messages from the message channel',
     category: "moderation",
     dmOnly: false, // Boolean
     guildOnly: true, // Boolean

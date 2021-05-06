@@ -3,6 +3,7 @@ const emotes = require ('../../configs/emotes.json')
 module.exports.config = {
     name: "playing",
     aliases: ["nowplaying"],
+    description: 'This will display information about the currently playing song in your guild',
     category: "music",
     dmOnly: false, // Boolean
     guildOnly: true, // Boolean
@@ -15,22 +16,18 @@ module.exports.config = {
 
 module.exports.run = async (client, message, args) => {
 
-    if (!message.member.voice.channel) return message.channel.send(`:warning: - You're not currently in a voice channel!`);
+    if (!message.member.voice.channel) return message.channel.send(`:warning: - You're not currently in a voice channel!`); // If the message author is not in a voice channel it will return
 
-    if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`:warning: - You are not in the same voice channel as the bot!`);
+    if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`:warning: - You are not in the same voice channel as the bot!`); // If the author is in a different channel than the client then it will return
 
-    if (!client.player.getQueue(message)) return message.channel.send(`:warning: - No music currently playing!`);
+    if (!client.player.getQueue(message)) return message.channel.send(`:warning: - No music currently playing!`); // If no queue is found then it will return
 
-    const track = client.player.nowPlaying(message);
-    const filters = [];
-
-    Object.keys(client.player.getQueue(message).filters).forEach((filterName) => client.player.getQueue(message).filters[filterName]) ? filters.push(filterName) : false;
+    const track = client.player.nowPlaying(message); // Defining the track as the currently playing song
 
     message.channel.send({
-        embed: {
-            color: message.guild.me.displayColor,
-            author: { name: track.title },
-            footer: { text: `Made with <3`},
+        embed: { // Defining the embed with all values about the song
+            color: '#36393f',
+            author: { name: track.title }, 
             fields: [
 
 

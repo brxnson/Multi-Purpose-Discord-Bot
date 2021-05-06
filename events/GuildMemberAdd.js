@@ -4,7 +4,7 @@ const AutoRole = require ('../mongoose/AutoRole')
 const JoinLogs = require ('../mongoose/Join-Logs')
 module.exports = async (client) => {
 
-client.on("guildMemberAdd", async member => {
+client.on("guildMemberAdd", async member => { // event for the member logs for joined members
 
 const  Auto = await AutoRole.findOne({
     GuildID: member.guild.id
@@ -20,7 +20,7 @@ member.roles.add(role)
 
 } else if (Joins && !Auto) {
 
-const channel = client.channels.cache.get(Joins.ChannelID)
+const channel = client.channels.cache.get(Joins.ChannelID) // getting the channel to send the message to
 
 const embed = new Discord.MessageEmbed()
 .setAuthor(`Member Joined`, member.user.displayAvatarURL({ dynamic: true, size: 512 }))
@@ -36,7 +36,7 @@ channel.send(embed)
 
 } else if (Joins && Auto) {
 
-const role = member.guild.roles.cache.find(r => r.id === Auto.RoleID)
+const role = member.guild.roles.cache.find(r => r.id === Auto.RoleID) // if auto role is enabled it adds the role
 member.roles.add(role)
 
 const channel = client.channels.cache.get(Joins.ChannelID)

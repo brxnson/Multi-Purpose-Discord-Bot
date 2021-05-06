@@ -3,6 +3,7 @@ const emotes = require ('../../configs/emotes.json')
 module.exports.config = {
     name: "queue",
     aliases: [],
+    description: 'This will display the amount of songs in the queue that you specify',
     category: "music",
     dmOnly: false, // Boolean
     guildOnly: true, // Boolean

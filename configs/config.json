@@ -1,4 +1,6 @@
 {
-    "prefix": "YOUR_PREFIX",
-    "token": "YOUR_TOKEN"
+    "prefix": "YOUR PREFIX",
+    "DevID": "YOUR DISCORD ID",
+    "MongoURL": "YOUR MONGODB URL",
+    "token": "YOUR TOKEN"
 }

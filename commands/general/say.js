@@ -1,7 +1,8 @@
 const Discord = require ('discord.js')
 module.exports.config = {
     name: "say",
-    aliases: [],
+    aliases: ['speak'],
+    description: 'This command will make the bot respond with your arguments',
     category: "general",
     dmOnly: false, // Boolean
     guildOnly: true, // Boolean
@@ -14,7 +15,7 @@ module.exports.config = {
 
 module.exports.run = async (client, message, args) => {
 
-let text = args.join(" ")
-message.channel.send(text)
+let text = args.join(" ") // Defining text as all arguments
+message.channel.send(text) 
 
 }

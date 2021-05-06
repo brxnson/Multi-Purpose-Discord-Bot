@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
 
     const config = require ('../../configs/config.json')
 
-    if(message.member.id !== '575330298968014859') return 
+    if(message.member.id !== config.DevID) return 
     
     const input = args.join(" ")
     
@@ -40,8 +40,7 @@ module.exports.run = async (client, message, args) => {
     const embed = new Discord.MessageEmbed()
     
     .setTitle('Eval Information')
-    .setColor(message.guild.me.displayColor)
-    .setFooter('Made with <3')
+    .setColor('#36393f')
     .setTimestamp()
     .addFields(
         {name: 'Eval Input:', value: `\`\`\`js\n${args.join(" ")}\`\`\``},
@@ -65,7 +64,7 @@ module.exports.run = async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
     
         .setTitle('Command Error')
-        .setColor(message.guild.me.displayColor)
+        .setColor('#36393f')
         .setDescription(`\`\`\`${error}\`\`\``)
         .setFooter(`Made with <3`)
         .setTimestamp()

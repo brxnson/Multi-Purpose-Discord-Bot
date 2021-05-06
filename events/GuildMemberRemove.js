@@ -2,7 +2,7 @@ const Discord = require ('discord.js')
 const Logs = require ('../mongoose/Join-Logs')
 module.exports = async (client) => {
 
-client.on("guildMemberRemove", async member => {
+client.on("guildMemberRemove", async member => { // Event for the member logs for when a member leaves
     
 const data = await Logs.findOne({
     GuildID: member.guild.id

@@ -7,6 +7,7 @@ const ModLogs = require ('../../mongoose/Modlogs')
 module.exports.config = {
     name: "settings",
     aliases: [],
+    description: 'This will send the current server settings that are saved in the database.',
     category: "moderation",
     dmOnly: false, // Boolean
     guildOnly: true, // Boolean

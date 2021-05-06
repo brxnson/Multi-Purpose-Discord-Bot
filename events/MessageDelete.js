@@ -4,7 +4,7 @@ const Discord = require ('discord.js')
 const schema = require ('../mongoose/Delete-Logs')
 module.exports = async (client) => {
 
-client.on("messageDelete", async message => {
+client.on("messageDelete", async message => { // Event for the message delete logs
 
 const data = await schema.findOne({
     GuildID: message.guild.id

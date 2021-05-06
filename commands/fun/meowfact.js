@@ -3,6 +3,7 @@ const axios = require ('axios')
 module.exports.config = {
     name: "meowfact",
     aliases: [],
+    description: 'This will get a random fact about cats from the api',
     category: "fun",
     dmOnly: false, // Boolean
     guildOnly: false, // Boolean
@@ -16,8 +17,8 @@ module.exports.config = {
 module.exports.run = async (client, message, args) => {
 
 axios({
-    method: "get",
-    url: "https://meowfacts.herokuapp.com"
+    method: "get", // Using a GET method for the api request
+    url: "https://meowfacts.herokuapp.com" // Setting the URL we use for the api request
 }).then(async res => {
    
     const embed = new Discord.MessageEmbed()
@@ -25,7 +26,7 @@ axios({
     .setTimestamp()
     .setFooter(`Invoked by ${message.author.tag}`)
 
-    .setTitle(res.data.data[0])
+    .setTitle(res.data.data[0]) // Setting the embed title as the fact
 
     message.reply(embed)
 

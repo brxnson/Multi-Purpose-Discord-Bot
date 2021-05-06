@@ -5,6 +5,7 @@ const schema = require ('../../mongoose/ReactRole')
 module.exports.config = {
     name: "reactrole",
     aliases: [],
+    description: 'This command will let you add a react role to a message with a specified emoji, anyone that reacts to the message will get given the specified role!',
     category: "general",
     dmOnly: false, // Boolean
     guildOnly: true, // Boolean
@@ -30,7 +31,7 @@ let ReactMessage = await channel.messages.fetch(args[0])
 let role = message.mentions.roles.first()
 if (!role) role = message.guild.roles.cache.find(r => r.id === args[0])
 
-if (!emoji || !ReactMessage | !role) {
+if (!emoji || !ReactMessage | !role) { // If any of the required arguments are missing then it will return
     return message.channel.send('Please make sure all of your arguments are valid!')
 }
 
@@ -51,11 +52,11 @@ let newData = new schema({
     MessageID: ReactMessage.id,
     RoleID: role.id,
     ReactID: emoji.id,
-    ReactName: null
+    ReactName: null // If the emote is custom the it will set "ReactName" as null in the database
 })
 
 newData.save()
-const FinalMessage = await message.channel.send('React started...')
+const FinalMessage = await message.channel.send('React started...') // Replying saying the react has started once the schema has been made
 await ReactMessage.react(emoji.id).catch(err => {return message.channel.send('Please make sure i am in a guild with that emoji!'), FinalMessage.delete()})
 
 } else if (!data2) {

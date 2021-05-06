@@ -1,4 +1,4 @@
-### Multi-Purpose-Discord-Bot
+# Multi-Purpose-Discord-Bot
 
 # Installation
 

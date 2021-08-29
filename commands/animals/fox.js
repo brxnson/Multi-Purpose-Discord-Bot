@@ -30,6 +30,6 @@ const embed = new Discord.MessageEmbed()
 
 message.channel.send(embed)
 
-}).catch(err => message.channel.send('An error has occured whilst fetching that data!')) // If there was an error getting the api request then it will return with this message
+}).catch(err => message.channel.send('An error has occured whilst fetching that data')) // If there was an error getting the api request then it will return with this message
 
 }

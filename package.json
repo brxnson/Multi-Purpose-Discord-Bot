@@ -9,7 +9,7 @@
   "author": "Brxnson#0001",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.5.0",
+    "@discordjs/opus": "^0.6.0",
     "Math": "0.0.1-security",
     "ascii-table": "0.0.9",
     "axios": "^0.21.1",
